@@ -1,3 +1,35 @@
 <p></p>
 <h3>Информация о товаре</h3>
-<h5>{{prod.title}}</h5>
+<h4>{{prod.title}}</h4>
+<p></p>
+<h7>Цена: {{prod.price}} руб.</h7>
+<p></p>
+<h7>Категория: {{prod.categoryTitle}}</h7>
+<p></p>
+<div>
+    <form novalidate ng-submit="leaveComment()">
+        <div class="mb-3">
+            <label for="inputDescription" class="form-label">Оставить отзыв о товаре</label>
+            <input type="text" class="form-control" ng-model="newComment.description" id="inputDescription" aria-describedby="descriptionHelp">
+        </div>
+
+        <button type="submit" class="btn btn-primary">Отправить</button>
+    </form>
+</div>
+<p></p>
+<table class="table">
+    <thead>
+    <tr>
+        <th scope="col">Имя</th>
+        <th scope="col">Отзыв</th>
+        <th scope="col">Дата</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="comment in myComments">
+        <td>{{comment.userName}}</td>
+        <td>{{comment.description}}</td>
+        <td>{{comment.createdAt}}</td>
+    </tr>
+    </tbody>
+</table>
