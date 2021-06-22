@@ -90,3 +90,12 @@ create table order_items (
     created_at                      timestamp default current_timestamp,
     updated_at                      timestamp default current_timestamp
 );
+
+create table comments (
+    id                              bigserial primary key,
+    description                     varchar(255),
+    user_id                         bigint references users (id),
+    product_id                      bigint references products (id),
+    created_at                      timestamp default current_timestamp,
+    updated_at                      timestamp default current_timestamp
+);
